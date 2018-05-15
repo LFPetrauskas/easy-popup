@@ -1,0 +1,19 @@
+@keyframes up {
+    0% { height: 0vh; }
+    50% { height: 25vh; }
+    0% { height: 0vh; }
+}
+
+.popup {
+    position: absolute;
+    width: 25vw;
+    height: 25vh;
+    right: 0px;
+    bottom: 0px;
+    background-color: brown;
+    animation-name: up;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+    animation-play-state: paused;
+    animation-duration: 1s;
+}
