@@ -1,28 +1,27 @@
-function Popup(text, upTime, downTime, waitTime) {
+function Popup(waitTime) {
     let div = document.createElement("div");
     div.className = "popup";
-    this.show = function () {
+    this.show = () => {
         document.body.appendChild(div);
-        setTimeout(function() {
+        div.style.animationPlayState = "running";
+        setTimeout(() => {
             div.style.animationPlayState = "paused";
-            setTimeout(function() {
+            setTimeout(() => {
                 div.style.animationDirection = "reverse";
                 div.style.animationPlayState = "running";
-                
-            }, 500);
+                this.removeAfterTime(500);
+            }, waitTime || 2500);
         }, 500);
-
     }
 
-    this.removeAfterTime = function(time) {
-        setTimeout(function() {
+    this.removeAfterTime = time => {
+        setTimeout(() => {
             document.body.removeChild(div);
         }, time);
     }
 }
 
 function pop() {
-    var popup = new Popup();
+    var popup = new Popup(1500);
     popup.show();
-    //popup.removeAfterTime(2500);
 }
