@@ -1,6 +1,7 @@
 function Popup(waitTime) {
     let div = document.createElement("div");
     div.className = "popup";
+    div.innerHTML = "<div class='texto'>Notificação</div>"
     this.show = () => {
         document.body.appendChild(div);
         div.style.animationPlayState = "running";
